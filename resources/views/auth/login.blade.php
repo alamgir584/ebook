@@ -2,7 +2,32 @@
     <!-- Session Status -->
     <x-auth-session-status class="mb-4" :status="session('status')" />
 
-    <form method="POST" action="{{ route('login') }}">
+
+
+    <div class="lg:mt-0 lg:w-96 md:w-1/2 sm:w-2/3 mt-10 w-full">
+        <form class="p-6 space-y-4 relative bg-white shadow-lg rounded-lg" action="{{route('login')}}" method="POST"> 
+            @csrf
+            <input type="email"  name="email" placeholder="Email or Phone Number" class="with-border">
+            <input type="password" name="password" placeholder="Password" class="with-border">
+            <button type="submit" class="bg-blue-600 font-semibold p-3 rounded-md text-center text-white w-full">
+                Log In
+            </button>
+            <a href="{{ route('password.request') }}" class="text-blue-500 text-center block"> Forgot Password? </a>
+            <hr class="pb-3.5">
+            <div class="flex">
+                <a href="#register" type="button" class="bg-green-600 hover:bg-green-500 hover:text-white font-semibold py-3 px-5 rounded-md text-center text-white mx-auto" uk-toggle>
+                    Create New Account
+                </a>
+            </div>
+        </form>
+
+        <div class="mt-8 text-center text-sm"> <a href="#" class="font-semibold hover:underline"> Create a Page </a> for a celebrity, band or business </div>
+    </div>
+</x-guest-layout>
+
+
+
+    {{-- <form method="POST" action="{{ route('login') }}">
         @csrf
 
         <!-- Email Address -->
@@ -43,5 +68,5 @@
                 {{ __('Log in') }}
             </x-primary-button>
         </div>
-    </form>
-</x-guest-layout>
+    </form>--}}
+
